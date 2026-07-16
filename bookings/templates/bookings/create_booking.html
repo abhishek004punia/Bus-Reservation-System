@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Ticket{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-primary text-white">
+                <h4>Book Ticket</h4>
+            </div>
+
+            <div class="card-body">
+
+                <div class="alert alert-info">
+
+                    <strong>Bus:</strong> {{ schedule.bus }}<br>
+
+                    <strong>Route:</strong> {{ schedule.route }}<br>
+
+                    <strong>Date:</strong> {{ schedule.travel_date }}<br>
+
+                    <strong>Fare:</strong> ₹ {{ schedule.fare }}
+
+                </div>
+
+                <form method="post">
+
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <button class="btn btn-success">
+                        Confirm Booking
+                    </button>
+
+                    <a href="{% url 'schedule_list' %}"
+                       class="btn btn-secondary">
+                        Cancel
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -28,6 +28,7 @@ urlpatterns = [
     path("routes/", include("routes.urls")),
     path("drivers/", include("drivers.urls")),
     path("schedules/", include("schedules.urls")),
+    path("bookings/", include("bookings.urls")),
  
 ]
 
