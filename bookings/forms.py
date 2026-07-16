@@ -20,3 +20,28 @@ class BookingForm(forms.ModelForm):
             "mobile_number": forms.TextInput(attrs={"class": "form-control"}),
             "seat_number": forms.NumberInput(attrs={"class": "form-control"}),
         }
+
+
+class SearchForm(forms.Form):
+    source = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={
+            "class": "form-control",
+            "placeholder": "Enter Source"
+        })
+    )
+
+    destination = forms.CharField(
+        max_length=100,
+        widget=forms.TextInput(attrs={
+            "class": "form-control",
+            "placeholder": "Enter Destination"
+        })
+    )
+
+    travel_date = forms.DateField(
+        widget=forms.DateInput(attrs={
+            "class": "form-control",
+            "type": "date"
+        })
+    )
