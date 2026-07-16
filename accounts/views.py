@@ -4,10 +4,32 @@ from .forms import RegisterForm
 from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from buses.models import Bus
+from routes.models import Route
+from drivers.models import Driver
+from schedules.models import Schedule
+from bookings.models import Booking
+from payments.models import Payment
+from users.models import User
+from django.db.models import Sum
 
 def home(request):
-    return render(request, "home.html")
 
+    context = {
+        "total_buses": Bus.objects.count(),
+        "total_routes": Route.objects.count(),
+        "total_drivers": Driver.objects.count(),
+        "total_schedules": Schedule.objects.count(),
+        "total_bookings": Booking.objects.count(),
+        "total_users": User.objects.count(),
+        "total_revenue": Payment.objects.filter(
+            status="SUCCESS"
+        ).aggregate(
+            total=Sum("amount")
+        )["total"] or 0,
+    }
+
+    return render(request, "home.html", context)
 
 def register(request):
     if request.method == "POST":

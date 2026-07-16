@@ -43,10 +43,12 @@
 
             </table>
 
-            <button class="btn btn-success">
-                💳 Pay Now
-            </button>
+           <a href="{% url 'payment_success' booking.id %}"
+                class="btn btn-success">
 
+                💳 Pay Now
+
+            </a>
         </div>
 
     </div>

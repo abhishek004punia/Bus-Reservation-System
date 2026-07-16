@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Payment Successful{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-success text-white">
+            <h2>✅ Payment Successful</h2>
+        </div>
+
+        <div class="card-body text-center">
+
+            <h4>Thank you!</h4>
+
+            <p>Your payment has been completed successfully.</p>
+
+            <hr>
+
+            <p><strong>Transaction ID:</strong></p>
+
+            <h5>{{ payment.transaction_id }}</h5>
+
+            <p><strong>Amount Paid:</strong></p>
+
+            <h4>₹ {{ payment.amount }}</h4>
+
+            <a href="{% url 'booking_detail' booking.id %}"
+               class="btn btn-primary">
+
+                🎟 View Ticket
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

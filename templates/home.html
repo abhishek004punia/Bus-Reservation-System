@@ -19,7 +19,29 @@ Home
     <a href="#" class="btn btn-primary btn-lg">
         Book Now
     </a>
+    <div class="row">
 
+    <div class="col-md-3">
+        <div class="card shadow mb-3">
+            <div class="card-body text-center">
+                <h5>Total Buses</h5>
+                <h2>{{ total_buses }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow mb-3">
+            <div class="card-body text-center">
+                <h5>Total Routes</h5>
+                <h2>{{ total_routes }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Repeat for Drivers, Schedules, Bookings, Users, Revenue -->
+
+</div>
 </div>
 
 {% endblock %}
