@@ -63,7 +63,7 @@ def create_booking(request, schedule_id):
 
             messages.success(request, "Booking successful!")
 
-            return redirect("booking_list")
+            return redirect("booking_detail", pk=booking.pk)
 
     else:
         form = BookingForm()
@@ -104,5 +104,21 @@ def search_bus(request):
         {
             "form": form,
             "schedules": schedules,
+        },
+    )
+
+@login_required
+def booking_detail(request, pk):
+    booking = get_object_or_404(
+        Booking,
+        pk=pk,
+        user=request.user
+    )
+
+    return render(
+        request,
+        "bookings/booking_detail.html",
+        {
+            "booking": booking,
         },
     )

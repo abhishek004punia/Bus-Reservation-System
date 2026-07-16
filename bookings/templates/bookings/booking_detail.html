@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Bus Ticket{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-header bg-primary text-white text-center">
+            <h2>🚌 Bus Reservation Ticket</h2>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <h5>Passenger Details</h5>
+                    <hr>
+
+                    <p><strong>Booking ID:</strong> BRS{{ booking.id|stringformat:"06d" }}</p>
+                    <p><strong>Name:</strong> {{ booking.passenger_name }}</p>
+                    <p><strong>Age:</strong> {{ booking.passenger_age }}</p>
+                    <p><strong>Gender:</strong> {{ booking.passenger_gender }}</p>
+                    <p><strong>Mobile:</strong> {{ booking.mobile_number }}</p>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <h5>Journey Details</h5>
+                    <hr>
+
+                    <p><strong>Bus:</strong> {{ booking.schedule.bus }}</p>
+                    <p><strong>Route:</strong> {{ booking.schedule.route }}</p>
+                    <p><strong>Date:</strong> {{ booking.schedule.travel_date }}</p>
+                    <p><strong>Departure:</strong> {{ booking.schedule.departure_time }}</p>
+                    <p><strong>Arrival:</strong> {{ booking.schedule.arrival_time }}</p>
+                    <p><strong>Seat:</strong> {{ booking.seat_number }}</p>
+                    <p><strong>Fare:</strong> ₹ {{ booking.schedule.fare }}</p>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="text-center">
+
+                <span class="badge bg-success fs-6">
+                    {{ booking.status }}
+                </span>
+
+            </div>
+
+            <div class="mt-4 text-center">
+
+                <button class="btn btn-primary"
+                        onclick="window.print()">
+
+                    🖨 Print Ticket
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
