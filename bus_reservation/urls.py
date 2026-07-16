@@ -29,6 +29,7 @@ urlpatterns = [
     path("drivers/", include("drivers.urls")),
     path("schedules/", include("schedules.urls")),
     path("bookings/", include("bookings.urls")),
+    path("payments/", include("payments.urls")),
  
 ]
 

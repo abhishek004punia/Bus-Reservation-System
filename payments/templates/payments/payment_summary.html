@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Payment Summary{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-success text-white">
+            <h3>Payment Summary</h3>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>Passenger</th>
+                    <td>{{ booking.passenger_name }}</td>
+                </tr>
+
+                <tr>
+                    <th>Bus</th>
+                    <td>{{ booking.schedule.bus }}</td>
+                </tr>
+
+                <tr>
+                    <th>Route</th>
+                    <td>{{ booking.schedule.route }}</td>
+                </tr>
+
+                <tr>
+                    <th>Seat</th>
+                    <td>{{ booking.seat_number }}</td>
+                </tr>
+
+                <tr>
+                    <th>Total Fare</th>
+                    <td>₹ {{ booking.schedule.fare }}</td>
+                </tr>
+
+            </table>
+
+            <button class="btn btn-success">
+                💳 Pay Now
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
